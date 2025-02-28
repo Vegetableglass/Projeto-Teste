@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Cadastro de Endereços</h1>
+    <p>Seja bem-vindo ao sistema de cadastro de endereços.</p>
+    <p>Escolha uma das opções abaixo:</p>
+    <br>
+    <button><a href="{% url 'usuarios':cep_search' %}">Buscar CEP</a></button>
+    <button><a href="{% url 'usuarios:create' %}">Cadastrar Endereço</a></button>
+    <button><a href="{% url 'usuarios:list' %}">Listar Endereços</a></button>
+</body>
+</html>

@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Deletar Endereço </title>
 </head>
 <body>
-    <h1> Confirme a remoção: </h1>
-    <form action="{% url 'usuarios:deletar' address.id %}" method='post'>
+    <h1> Deletar Endereço </h1>
+    <form action="{% url 'usuarios:delete' pk=address.id %}" method='post'>
         {% csrf_token %}
-        <p>CEP: {{ address.cep }}</p>
-        <button><a href="{% url 'endereco:atualizar' address.id %}">Editar</a></button>
-        <button><a href="{% url 'endereco:atualizar' address.id %}">Editar</a></button>
-        <button><a href="{type="submit"> Confirmar </button>
-
+        <p>Tem certeza que deseja deletar esse endereço: {{ address.cep }} - {{ address.localidade }} - {{ address.uf }}?</p>
+        <input type="hidden" name="id" value="{{ address.id }}">
+        <input type="'hidden" name="deletar" value="True">
+        <button><a href="{% url 'usuarios:details' address.id %}">Cancelar</a></button>
+        <button><a href="{type="submit"> Deletar </button>
+    </form>
+    <button><a href="{% url 'app:list' %}">Voltar</a></button>        
 </body>
 </html>

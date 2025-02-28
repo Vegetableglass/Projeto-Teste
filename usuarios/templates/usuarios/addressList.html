@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista</title>
+    <title>Endereços</title>
 </head>
 <body>
-    {% if addresses %}
-        <h1> Endereços </h1>
+    {% if message %}
+        <p style="color: red;">{{ message }}</p>
+    {% endif %}      
+    
+    {% if address %}
+    <h1> Endereços </h1>
         <table>
             <tr>
                 <th>CEP</th>
@@ -20,11 +24,18 @@
                     <td>{{ address.cep }}</td>
                     <td>{{ address.city }}</td>
                     <td>{{ address.uf }}</td>
-                    <td><button><a href="{%url 'usuarios:atualizar' address.id%}"> Editar</a></button></td>
-                    <td><button><a href="{%url 'usuarios:Listar' address.id%}"> Listar</a></button></td>
+                    <td><a href="{%url 'usuarios:detail' pk=address.id%}">Detalhes</a></td>
+                    <td><a href="{%url 'usuarios:update' pk=address.id%}">Editar</a></td>
+                    <td><a href="{%url 'usuarios:delete' pk=address.id %}">Excluir</a></td>
                 </tr>
             {% endfor %}    
         </table>      
-    {% elif %}      
+    {% else %}   
+        <h1>Nenhum endereço cadastrado</h1>
+        <button><a href="{% url 'usuarios:cep_search' %}">Buscar CEP</a></button>
+        <button><a href="{% url 'usuarios:create' %}">Cadastrar Endereço</a></button>
+        <button><a href="{% url 'usuarios:index' %}">Voltar</a></button>
+    {% endif %}    
+
 </body>
 </html>
