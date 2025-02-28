@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Confirme a remoção: </h1>
+    <form action="{% url 'usuarios:deletar' address.id %}" method='post'>
+        {% csrf_token %}
+        <p>CEP: {{ address.cep }}</p>
+        <button><a href="{% url 'endereco:atualizar' address.id %}">Editar</a></button>
+        <button><a href="{% url 'endereco:atualizar' address.id %}">Editar</a></button>
+        <button><a href="{type="submit"> Confirmar </button>
+
+</body>
+</html>
